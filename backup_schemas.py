@@ -1,5 +1,5 @@
-from pydantic import BaseModel, Required
-from typing import Optional, Any, List, Dict
+from pydantic import BaseModel
+from typing import Optional, Any, List, Dict ,Required
 
 class CategoriesSchema(BaseModel):
     _id: Optional[Any] = None
@@ -10,16 +10,16 @@ class CategoriesSchema(BaseModel):
     updatedAt: Optional[Any] = None
 
 class ContactsSchema(BaseModel):
-    _id: Any         
-    email: str        
-    user: Any 
-    company: Any 
-    name: str 
-    mobile: str 
-    message: str 
-    file: Any 
-    createdAt: Any 
-    updatedAt: Any 
+    _id: Optional[Any] = None
+    email: Optional[str] = None
+    user: Optional[Any] = None
+    company: Optional[Any] = None
+    name: Optional[str] = None
+    mobile: Optional[str] = None
+    message: Optional[str] = None
+    file: Optional[Any] = None
+    createdAt: Optional[Any] = None
+    updatedAt: Optional[Any] = None
 
 class SettingsSchema(BaseModel):
     _id: Optional[Any] = None
