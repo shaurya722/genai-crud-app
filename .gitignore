@@ -12,7 +12,6 @@
 *.pyc
 *.pyo
 *.pyd
-*.db
 *.sqlite3
 *.env
 *.venv
