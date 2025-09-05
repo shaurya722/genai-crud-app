@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts Viewer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-600 text-white text-center py-4 text-xl font-semibold">
+    📇 Contacts Dashboard
+  </header>
+
+  <!-- Cards Container -->
+  <main id="contacts" class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 flex-1">
+    <!-- Cards will be injected here -->
+  </main>
+
+  <!-- Chatbot Input -->
+  <footer class="bg-white border-t p-4 flex items-center space-x-2">
+    <input id="chatInput" type="text" placeholder="Ask something..."
+      class="flex-1 border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+    <button onclick="sendQuery()"
+      class="bg-indigo-600 text-white px-5 py-2 rounded-xl hover:bg-indigo-700 transition">
+      Send
+    </button>
+  </footer>
+
+  <script>
+    const API_URL = "http://localhost:8000/contacts"; // FastAPI endpoint
+    const AGENT_URL = "http://localhost:8000/query";  // Agent POST endpoint
+
+    // Fetch contacts and render
+    async function loadContacts() {
+      const res = await fetch(API_URL);
+      const json = await res.json();
+      const contacts = json.result.data;
+
+      const container = document.getElementById("contacts");
+      container.innerHTML = contacts.map(c => `
+        <div class="bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition">
+          <h2 class="text-lg font-semibold text-gray-800">${c.name || "Unknown"}</h2>
+          <p class="text-sm text-gray-500">${c._id || ""}</p>
+          <p class="text-sm text-gray-500">${c.email || ""}</p>
+          <p class="text-sm text-gray-500">${c.mobile || ""}</p>
+          <p class="mt-2 text-gray-700 text-sm line-clamp-3">${c.message || ""}</p>
+          ${c.file ? `<a href="${c.file}" target="_blank" class="mt-2 inline-block text-indigo-600 text-sm">📎 File</a>` : ""}
+          <p class="text-xs text-gray-400 mt-3">Created: ${new Date(c.createdAt).toLocaleString()}</p>
+        </div>
+      `).join("");
+    }
+
+    // Send chatbot query
+    async function sendQuery() {
+      const input = document.getElementById("chatInput");
+      const query = input.value.trim();
+      if (!query) return;
+
+      const res = await fetch(AGENT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query })
+      });
+
+      const result = await res.json();
+      console.log("Agent Response:", result);
+
+      // 🔄 Refresh contacts automatically after query
+      await loadContacts();
+
+      input.value = "";
+    }
+
+    // Initial load
+    loadContacts();
+  </script>
+</body>
+</html>

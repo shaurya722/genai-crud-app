@@ -1,0 +1,173 @@
+[
+    {
+        "success": true,
+        "deleted_count": 1,
+        "action": "delete",
+        "schema": "contacts",
+        "query": "delete contact id 68b97d478273e995d0dcdeed",
+        "timestamp": "2025-09-04T11:52:04.704245Z"
+    },
+    {
+        "success": true,
+        "deleted_count": 0,
+        "action": "delete",
+        "schema": "contacts",
+        "query": "delete contact id 68b97d478273e995d0dcdeed",
+        "timestamp": "2025-09-04T11:52:11.082853Z"
+    },
+    {
+        "success": true,
+        "deleted_count": 1,
+        "action": "delete",
+        "schema": "contacts",
+        "query": "delete contact id 68b97c5efae5a92a5aaadb0a",
+        "timestamp": "2025-09-04T11:52:23.978008Z"
+    },
+    {
+        "success": true,
+        "inserted_id": "68b97d818273e995d0dcdeee",
+        "action": "insert",
+        "schema": "contacts",
+        "query": "Create a new contact with the following details: email ian9@yopmail.com, user 682af1db274cd86be3cc3019, company 682af1e0274cd86be3cc3019, name Ian Somerhalder, mobile 9901234567, message Ian reaching out, file null, createdAt 2025-05-27T17:50:30.111000, updatedAt 2025-05-27T17:50:30.111000",
+        "timestamp": "2025-09-04T11:52:33.375332Z"
+    },
+    {
+        "error": "No item data provided for update operation",
+        "query": "update contact  whose name is Ian Somerhalder to ridhu",
+        "timestamp": "2025-09-05T04:51:21.716360Z"
+    },
+    {
+        "success": false,
+        "error": "Update failed: 8 validation errors for ContactsSchema\nemail\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nuser\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncompany\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nmobile\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nmessage\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nfile\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncreatedAt\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\nupdatedAt\n  Field required [type=missing, input_value={'name': 'ridhampatel2k4'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing",
+        "action": "update",
+        "schema": "contacts",
+        "query": "update contact whose name is Ian Somerhalder to ridhampatel2k4",
+        "timestamp": "2025-09-05T04:52:28.395001Z"
+    },
+    {
+        "success": true,
+        "matched_count": 1,
+        "modified_count": 1,
+        "action": "patch",
+        "schema": "contacts",
+        "updated_fields": [
+            "name"
+        ],
+        "filter_used": {
+            "name": "Ian Somerhalder"
+        },
+        "query": "patch contact whose name is Ian Somerhalder to ridhampatel2k4",
+        "timestamp": "2025-09-05T04:53:15.836681Z"
+    },
+    {
+        "success": false,
+        "error": "Delete failed: 'ridhampatel2k4' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string",
+        "action": "delete",
+        "schema": "contacts",
+        "query": "delete contact ridhampatel2k4",
+        "timestamp": "2025-09-05T04:53:48.303818Z"
+    },
+    {
+        "success": true,
+        "deleted_count": 1,
+        "action": "delete",
+        "schema": "contacts",
+        "filter_used": {
+            "name": "ridhampatel2k4"
+        },
+        "query": "delete contact whose name is ridhampatel2k4",
+        "timestamp": "2025-09-05T04:55:10.118449Z"
+    },
+    {
+        "success": true,
+        "matched_count": 1,
+        "modified_count": 1,
+        "action": "patch",
+        "schema": "contacts",
+        "updated_fields": [
+            "name"
+        ],
+        "filter_used": {
+            "name": "Jaydeep"
+        },
+        "query": "change contact whose name is Jaydeep to jaydeep khatri",
+        "timestamp": "2025-09-05T04:55:41.004262Z"
+    },
+    {
+        "success": false,
+        "error": "Validation error: Document not found",
+        "action": "patch",
+        "schema": "contacts",
+        "query": "change contact having name abbas to abbas attarwala",
+        "timestamp": "2025-09-05T04:57:12.757892Z"
+    },
+    {
+        "success": true,
+        "matched_count": 1,
+        "modified_count": 1,
+        "action": "patch",
+        "schema": "contacts",
+        "updated_fields": [
+            "name"
+        ],
+        "filter_used": {
+            "name": "Abbas"
+        },
+        "query": "change contact whose having name Abbas to Abbas Attarwala",
+        "timestamp": "2025-09-05T04:58:11.979431Z"
+    },
+    {
+        "success": true,
+        "matched_count": 1,
+        "modified_count": 1,
+        "action": "patch",
+        "schema": "contacts",
+        "updated_fields": [
+            "message"
+        ],
+        "filter_used": {
+            "name": {
+                "$regex": "Nisha",
+                "$options": "i"
+            }
+        },
+        "query": "change contact Nisha message to hellooooooooo ",
+        "timestamp": "2025-09-05T05:11:26.833980Z"
+    },
+    {
+        "success": true,
+        "matched_count": 1,
+        "modified_count": 1,
+        "action": "patch",
+        "schema": "contacts",
+        "updated_fields": [
+            "message"
+        ],
+        "filter_used": {
+            "name": {
+                "$regex": "Nisha",
+                "$options": "i"
+            }
+        },
+        "query": "change  Nisha message to hellooooooooo WORLD",
+        "timestamp": "2025-09-05T05:11:59.481504Z"
+    },
+    {
+        "success": true,
+        "matched_count": 1,
+        "modified_count": 1,
+        "action": "patch",
+        "schema": "contacts",
+        "updated_fields": [
+            "message"
+        ],
+        "filter_used": {
+            "name": {
+                "$regex": "Nisha",
+                "$options": "i"
+            }
+        },
+        "query": "change contact Nisha message to this is the testing message",
+        "timestamp": "2025-09-05T05:12:39.048844Z"
+    }
+]

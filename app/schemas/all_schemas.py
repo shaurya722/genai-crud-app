@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Required
+from pydantic import BaseModel
 from typing import Optional, Any, List, Dict
 
 class CategoriesSchema(BaseModel):
@@ -246,3 +246,28 @@ class AdminsSchema(BaseModel):
     mobile: Optional[str] = None
     countryDialCode: Optional[str] = None
     countryIsoCode: Optional[str] = None
+
+
+# all_schemas = {
+#     "categories": CategoriesSchema,
+#     "contacts": ContactsSchema,
+#     "settings": SettingsSchema,
+#     "companies": CompaniesSchema,
+#     "tasks": TasksSchema,
+#     "permissions": PermissionsSchema,
+#     "chat_lists": Chat_listsSchema,
+#     "logs": LogsSchema,
+#     "email_logs": EmailLogsSchema,
+#     "help_center": HelpCenterSchema,
+#     "friends": FriendsSchema,
+#     "static_pages": StaticPagesSchema,
+#     "notifications": NotificationsSchema,
+#     "manual_logs": ManualLogsSchema,
+#     "roles": RolesSchema,
+#     "users": UsersSchema,
+#     "chats": ChatsSchema,
+#     "jobs": JobsSchema,
+#     "email_templates": EmailTemplatesSchema,
+#     "admins": AdminsSchema,
+# }
+
